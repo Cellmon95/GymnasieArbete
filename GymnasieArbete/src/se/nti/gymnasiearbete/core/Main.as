@@ -1,4 +1,4 @@
-package se.nti.gymnasiearbete
+package se.nti.gymnasiearbete.core
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
