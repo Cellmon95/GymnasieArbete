@@ -17,7 +17,6 @@
   <classpaths>
     <class path="src" />
     <class path="extensions" />
-    <class path="resources" />
   </classpaths>
   <!-- Build options -->
   <build>

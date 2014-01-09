@@ -9,7 +9,7 @@ package se.nti.gymnasiearbete.core
 	 * @author Lucas Källberg
 	 */
 	
-	[SWF(width="800", height="640", frameRate="30", backgroundColor="#000000")]
+	[SWF(width="800", height="640", frameRate="60", backgroundColor="#000000")]
 	public class Main extends Sprite 
 	{
 		private var starling:Starling;
