@@ -6,14 +6,13 @@ package se.nti.gymnasiearbete.objects
 	 * ...
 	 * @author Lucas Källberg
 	 */
-	public class Hero extends Sprite 
+	public class Item extends VisualObject
 	{
 		
-		public function Hero() 
+		public function Item() 
 		{
 			
 		}
-		
 	}
 
 }
