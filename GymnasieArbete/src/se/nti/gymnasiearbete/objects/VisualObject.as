@@ -1,6 +1,8 @@
 package se.nti.gymnasiearbete.objects 
 {
-	import flash.display3D.textures.Texture;
+	import starling.events.EnterFrameEvent;
+	import starling.events.Event
+	import starling.textures.Texture;
 	import se.nti.gymnasiearbete.core.Game;
 	import se.nti.gymnasiearbete.interfaces.IDisposable;
 	import starling.display.Image;
@@ -8,43 +10,37 @@ package se.nti.gymnasiearbete.objects
 	 * ...
 	 * @author Lucas Källberg
 	 */
-	public class VisualObject extends GameObject implements IDisposable
+	public class VisualObject extends GameObject
 	{ 
 		protected var game:Game;
 		protected var img:Image;
 		protected var texture:Texture;
 		
-		public var x:Number = 0;
-		public var y:Number = 0;
-		
 		public function VisualObject(game:Game, texture:Texture, x:int = 0, y:int = 0) 
 		{
-			//initilaise the x and y in constructor instead of init
-			//so i don't need to add any parameters to init(easier when i override)
-			this.x = x;
-			this.y = y; 
-			
-			init();
-		}
-		
-		protected function init():void
-		{			
+			super();
 			this.game = game;
 			this.texture = texture;
 			this.img = new Image(texture);
-			
+			this.x = x;
+			this.y = y; 
+		}
+		
+		override protected function init(e:Event):void
+		{			
 			img.x = x;
 			img.y = y;
 			game.addChild(img);
 		}
 		
-		public function update():void
+		public function update(e:EnterFrameEvent):void
 		{
 			
 		}
 		
-		public function dispose():void
+		override public function dispose():void 
 		{
+			super.dispose();
 			img.dispose();
 			texture.dispose()
 		}
