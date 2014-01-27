@@ -2,6 +2,8 @@ package se.nti.gymnasiearbete.objects
 {
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 	/**
 	 * @author Lucas Källberg
 	 */
@@ -21,6 +23,16 @@ package se.nti.gymnasiearbete.objects
 		protected function init(e:Event):void
 		{
 			
+		}
+		
+		public function getClass():Class 
+		{
+		   return Class(getDefinitionByName(getQualifiedClassName(this)));
+		}
+		
+		public function getObject():Object
+		{
+			return this;
 		}
 		
 	}

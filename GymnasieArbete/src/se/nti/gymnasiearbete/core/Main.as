@@ -9,7 +9,7 @@ package se.nti.gymnasiearbete.core
 	 * @author Lucas Källberg
 	 */
 	
-	[SWF(width="800", height="640", frameRate="60", backgroundColor="#000000")]
+	[SWF(width="800", height="640", frameRate="60", backgroundColor="#ffffff")]
 	public class Main extends Sprite 
 	{
 		private var starling:Starling;
@@ -25,7 +25,7 @@ package se.nti.gymnasiearbete.core
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			starling = new Starling(Game, stage);
-			starling.showStats = true;
+			//starling.showStats = true;
 			starling.antiAliasing = 4;
 			starling.start();
 		}

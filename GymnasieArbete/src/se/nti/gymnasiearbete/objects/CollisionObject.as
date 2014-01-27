@@ -12,6 +12,11 @@ package se.nti.gymnasiearbete.objects
 	{
 		public var imgBounds:Rectangle;
 		
+		override public function get bounds():flash.geom.Rectangle 
+		{
+			return img.bounds;
+		}
+		
 		//public var width:Number;
 		//public var height:Number;
 		
@@ -30,8 +35,6 @@ package se.nti.gymnasiearbete.objects
 		override protected function init(e:Event):void 
 		{
 			super.init(e);
-			
-			imgBounds = img.bounds;
 		}
 	}
 

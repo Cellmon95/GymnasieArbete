@@ -1,6 +1,6 @@
 package se.nti.gymnasiearbete.objects 
 {
-	import flash.display3D.textures.Texture;
+	import se.nti.gymnasiearbete.core.Assets;
 	import se.nti.gymnasiearbete.core.Game;
 	/**
 	 * ...
@@ -9,11 +9,30 @@ package se.nti.gymnasiearbete.objects
 	public class Wall extends CollisionObject
 	{
 		
-		public function Wall(game:Game, texture:Texture, x = 0, y = 0)
+		public function Wall(game:Game, x:Number = 0, y:Number = 0)
 		{
-			super(game, texture, x, y);
+			super(game, Assets.WallText, x, y);
 		}
 		
+		override public function get x():Number 
+		{
+			return img.x;
+		}
+		
+		override public function set x(value:Number):void 
+		{
+			img.x = value;
+		}
+		
+		override public function get y():Number 
+		{
+			return img.y;
+		}
+		
+		override public function set y(value:Number):void 
+		{
+			img.y = value;
+		}
 	}
 
 }
