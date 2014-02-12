@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wood_large" tilewidth="32" tileheight="32">
+  <image source="wood_large.png" width="128" height="160"/>
+ </tileset>
+ <tileset firstgid="21" name="wood" tilewidth="32" tileheight="32">
+  <image source="wood.gif" width="96" height="96"/>
+ </tileset>
+ <layer name="Background" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0LsNADAMQkEv4fyz/5phgNCZjuJJdEiXEdFQRynaA020hHujg65wq3xsZStb2cpW/83+K63Yf6UV+6+0ej/zMHY=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwTYaAtEIFiWtvBBcTCNMBMdPYHzA4WGvmHh07+GI2P0fighT/4oezR+Bgc8TGaPwZXfAAAlLUQ6w==
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="25" height="20">
+  <object x="23" y="67" width="709" height="25"/>
+  <object x="68" y="134" width="704" height="21"/>
+  <object x="27" y="199" width="703" height="20"/>
+  <object x="67" y="259" width="702" height="20"/>
+  <object x="24" y="325" width="705" height="22"/>
+  <object x="23" y="453" width="706" height="19"/>
+  <object x="67" y="516" width="706" height="23"/>
+  <object x="18" y="582" width="710" height="21"/>
+  <object x="0" y="0" width="24" height="641"/>
+  <object x="773" y="0" width="32" height="640"/>
+  <object x="67" y="389" width="706" height="20"/>
+ </objectgroup>
+</map>

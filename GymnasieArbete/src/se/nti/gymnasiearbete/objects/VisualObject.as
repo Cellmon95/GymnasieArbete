@@ -16,11 +16,30 @@ package se.nti.gymnasiearbete.objects
 		protected var img:Image;
 		protected var texture:Texture;
 		
+		override public function get x():Number 
+		{
+			return img.x;
+		}
+		
+		override public function set x(value:Number):void 
+		{
+			img.x = value;
+		}
+		
+		override public function get y():Number 
+		{
+			return img.y;
+		}
+		
+		override public function set y(value:Number):void 
+		{
+			img.y = value;
+		}
+		
 		public function VisualObject(game:Game, texture:Texture, x:int = 0, y:int = 0) 
 		{
 			super();
 			this.game = game;
-			this.texture = texture;
 			this.img = new Image(texture);
 			this.x = x;
 			this.y = y; 
@@ -41,8 +60,9 @@ package se.nti.gymnasiearbete.objects
 		override public function dispose():void 
 		{
 			super.dispose();
+			img.removeFromParent(true);
 			img.dispose();
-			texture.dispose()
+			//this.removeFromParent(true);
 		}
 		
 	}

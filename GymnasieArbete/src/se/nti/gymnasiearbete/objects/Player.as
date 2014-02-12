@@ -15,78 +15,91 @@ package se.nti.gymnasiearbete.objects
 	public class Player extends Character 
 	{
 		private var nativeStage:Stage;
-		private var direction:int;
-		private var lastTime:Number;
-		
-		private static var DIR_LEFT:int = 0;
-		private static var DIR_UP:int = 1;
-		private static var DIR_RIGHT:int = 2;
-		private static var DIR_DOWN:int = 3;
+
 		
 		public function Player(game:Game, x:Number = 0, y:Number = 0) 
 		{
 			super(game, Assets.PlayerText, x, y);
 			nativeStage = Starling.current.nativeStage;
 			
-			acc = 200;
+			accX = 0;
+			accY = 0;
 		}
 		
 		override public function update(e:EnterFrameEvent):void 
 		{
+			move(e);
+		}
+		
+		
+		private function move(e:EnterFrameEvent):void 
+		{
 			if (Input.keysDown[Input.KEY_LEFT])
 			{
-				img.x -= acc * e.passedTime;
+				//img.x -= accX * e.passedTime;
+				accX = -200;
+				accY = 0;
 				direction = DIR_LEFT;
 			}
 			
 			else if (Input.keysDown[Input.KEY_UP])
 			{
-				img.y -= acc * e.passedTime;
+				//img.y -= accY * e.passedTime;
+				accY = -200;
+				accX = 0;
 				direction = DIR_UP;
 			}
 			else if (Input.keysDown[Input.KEY_RIGHT])
 			{
-				img.x += acc * e.passedTime; direction = DIR_RIGHT;
+				//img.x += accX * e.passedTime;
+				accX = 200;
+				accY = 0;
 				direction = DIR_RIGHT;
 			}
 			else if (Input.keysDown[Input.KEY_DOWN])
 			{
-				img.y += acc * e.passedTime
+				//img.y += accY * e.passedTime;
+				accY = 200;
+				accX = 0;
 				direction = DIR_DOWN;
 			}
-				
-			lastTime = e.passedTime;
-		}
-		
-		public function collideWall(pen:Rectangle):void
-		{
-			switch (direction) 
+			img.x += accX * e.passedTime;
+			img.y += accY * e.passedTime;
+			/*else
 			{
-				
-				case DIR_UP:
-					img.y += pen.height;
-				break;
-				
-				case DIR_RIGHT:
-					img.x -= pen.width;
-				break;
-				
-				case DIR_DOWN:
-					img.y -= pen.height;
-				break;
-				
-				case DIR_LEFT:
-					img.x += pen.width;
-				break;
-				default:
-			}
+				switch (direction) 
+				{
+					case DIR_DOWN:
+						if (Math.round(img.y - 16) % 8 != 0 ) 
+						{
+							img.y += accY * e.passedTime;
+						}
+					break;
+					
+					case DIR_LEFT:
+						if (int(img.x - 16) % 8 != 0 ) 
+						{
+							img.x -= accY * e.passedTime;;
+						}
+					break;
+					
+					case DIR_UP:
+						if (int(img.y - 16) % 8 != 0 ) 
+						{
+							img.y -= accY * e.passedTime;;
+						}
+					break;
+					
+					case DIR_RIGHT:
+						if (Math.round(img.x - 16) % 8 != 0 ) 
+						{
+							img.x += accY * e.passedTime;;
+						}
+					break;
+					
+					default:
+				}
+			}*/
 		}
-		
-/*		private function move():void
-		{
-			
-		}*/
-		
 	}
-
 }

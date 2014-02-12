@@ -5,15 +5,20 @@ package se.nti.gymnasiearbete.states
 	import se.nti.gymnasiearbete.core.Game;
 	import se.nti.gymnasiearbete.interfaces.IState;
 	import se.nti.gymnasiearbete.managers.CollisionManager;
+	import se.nti.gymnasiearbete.objects.Enemy;
 	import se.nti.gymnasiearbete.objects.GameObject;
+	import se.nti.gymnasiearbete.objects.Map;
 	import se.nti.gymnasiearbete.objects.Player;
+	import se.nti.gymnasiearbete.objects.Score;
 	import se.nti.gymnasiearbete.objects.Wall;
 	import se.nti.gymnasiearbete.objects.VisualObject;
 	import starling.core.Starling;
+	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	import se.nti.gymnasiearbete.core.Input;
+	import starling.text.TextField;
 	
 	/**
 	 * ...
@@ -26,42 +31,47 @@ package se.nti.gymnasiearbete.states
 		
 		//public var gameObjects:Vector.<GameObject>;
 		public var walls:Vector.<Wall>;
+		public var scores:Vector.<Score>;
 		public var player:Player;
+		public var enemys:Vector.<Enemy>;
+		public var playerScore:int;
+		public var map:Map;
+		private var playerScoreText:TextField;
 		
 		public function PlayState(game:Game) 
 		{
 			this.game = game;
 			Input.start(Starling.current.nativeStage);
-			init();
-			addEventListener(Event.ADDED_TO_STAGE, draw);
+			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		private function init():void
+		private function init(e:Event):void
 		{
-			/*gameObjects = new Vector.<GameObject>;
-			//player = new Player(game, 200);
-			//wall = new Wall(game, 200, 300);
-			
-			gameObjects.push(new Player(game, 200));
-			gameObjects.push(new Wall(game, 200, 300));*/
-			
 			walls = new Vector.<Wall>;
-			player = new Player(game);
+			scores = new Vector.<Score>;
+			player = new Player(game, 64, 32 * 10);
+			enemys = new Vector.<Enemy>;
+			map = new Map(game);
 			
 			collisionManager = new CollisionManager(this);
+			
+			playerScoreText = new TextField(70, 20, "Score: ");
+			playerScoreText.color = 0xffffff;
+			
+			playerScore = 0;
+			
+			enemys[0] = new Enemy(game, 0, 200);
+			enemys[1] = new Enemy(game, 0, 200);
+			enemys[2] = new Enemy(game, 0, 200);
+			enemys[3] = new Enemy(game, 0, 200);
+			
+			draw();
+			
 		}
 		
-		private function draw(e:Event):void
-		{
-			/*for (var i:int = 0; i < gameObjects.length; i++) 
-			{
-				if (typeof(gameObjects[i]) == typeof(VisualObject))
-				game.addChild(gameObjects[i]);
-			}*/
-			
-			game.addChild(player);
-			
-			for (var y:int = 0; y < 20; y++) 
+		private function draw():void
+		{			
+/*			for (var y:int = 0; y < 20; y++) 
 			{
 				for (var x:int = 0; x < 25; x++) 
 				{
@@ -71,39 +81,53 @@ package se.nti.gymnasiearbete.states
 							walls.push(new Wall(game));
 							walls[walls.length - 1].x = 32 * x;
 							walls[walls.length - 1].y = 32 * y;
-							addChild(walls[walls.length - 1]);
+							game.addChild(walls[walls.length - 1]);
 						break;
 						
 						case 0:
+							var img:Image = new Image(Assets.gridText);
+							img.x = 32 * x;
+							img.y = 32 * y;
+							game.addChild(img);
+						break;
+						
+						case 2:
+							scores.push(new Score(game));
+							scores[scores.length - 1].x = 32 * x;
+							scores[scores.length - 1].y = 32 * y;
+							game.addChild(scores[scores.length - 1]);
 						break;
 						default:
 					}
-				}
+				}	
+			}*/
+			game.addChild(map);
+			game.addChild(playerScoreText);
+			game.addChild(player);
+			
+			for (var i:int = 0; i < enemys.length; i++) 
+			{
+				game.addChild(enemys[i]);				
 			}
+			
 		}
 		
 		public function update(e:EnterFrameEvent):void
 		{
-/*			var tmp:VisualObject;
-			
-			for (var i:int = 0; i < gameObjects.length; i++) 
-			{
-				if (typeof(gameObjects[i]) == typeof(VisualObject)) 
-				tmp = gameObjects[i] as VisualObject;
-				tmp.update(e)
-			}*/
 			player.update(e);
+			for (var i:int = 0; i < enemys.length; i++) 
+			{
+				enemys[i].update(e);
+			}
 			collisionManager.update();
+			playerScoreText.text = "Score: " + playerScore;
 		}
 		
 		override public function dispose():void 
 		{
 			super.dispose();
-/*			for (var i:int = 0; i < gameObjects.length; i++) 
-			{
-				gameObjects[i].dispose();
-			}*/
 			Input.end();
+			
 		}
 	}
 }

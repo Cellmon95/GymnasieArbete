@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wood_large" tilewidth="32" tileheight="32">
+  <image source="../../../../../../AppData/Roaming/GameMaker/Backgrounds/Tilesets/wood_large.png" width="128" height="160"/>
+ </tileset>
+ <tileset firstgid="21" name="wood" tilewidth="32" tileheight="32">
+  <image source="../../../../../../AppData/Roaming/GameMaker/Backgrounds/Tutorial1/wood.gif" width="96" height="96"/>
+ </tileset>
+ <layer name="background" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0LsNACAQw9AscfzZf028A0qXwpLrV5IadSrTD5q0jL/p0DW+yydWsYpVrGIVq99/VQswdg==
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJylVIsKwyAMTNd17gWunf//raswWcgumqSBgGjOuxDPREQvRz6c9dc9N/JFdtaXAOYIR6J+v4ijYtY93yAbhnP09GXDGunXOM5fbVw/v2sGHIl++k8GDqRF05tFHcJGOCa23kTdiONC/7NeAAdaV6ycecMWsvkjMvMWleNOY68uDMPvRb3LfBr74BHxYO0DeQj5SXLwN6t50drH0Xn0/pLmJ4sHtf8n8peg/blzFuGYlH0LB/eRnF/v7WrvxOtBpM8aZaAF5c1ZX/v5AD1eDmY=
+  </data>
+ </layer>
+ <objectgroup name="Collision rect" width="25" height="20" visible="0">
+  <object x="3" y="2" width="25" height="632"/>
+  <object x="32" y="5" width="762" height="23"/>
+  <object x="772" y="32" width="22" height="603"/>
+  <object x="32" y="612" width="736" height="24"/>
+  <object x="33" y="323" width="281" height="23"/>
+  <object x="292" y="103" width="22" height="219"/>
+  <object x="486" y="102" width="21" height="221"/>
+  <object x="485" y="324" width="287" height="24"/>
+  <object x="487" y="387" width="283" height="23"/>
+  <object x="486" y="411" width="19" height="160"/>
+  <object x="507" y="546" width="224" height="23"/>
+  <object x="708" y="452" width="22" height="92"/>
+  <object x="704" y="448" height="32"/>
+  <object x="550" y="453" width="154" height="23"/>
+  <object x="548" y="478" width="22" height="29"/>
+  <object x="28" y="390" width="285" height="22"/>
+  <object x="292" y="413" width="24" height="132"/>
+  <object x="67" y="546" width="246" height="25"/>
+  <object x="70" y="453" width="22" height="95"/>
+  <object x="94" y="454" width="157" height="23"/>
+  <object x="509" y="101" width="223" height="22"/>
+  <object x="708" y="124" width="24" height="158"/>
+  <object x="551" y="261" width="154" height="20"/>
+  <object x="551" y="164" width="20" height="97"/>
+  <object x="574" y="165" width="92" height="22"/>
+  <object x="70" y="102" width="218" height="22"/>
+  <object x="70" y="125" width="21" height="156"/>
+  <object x="94" y="259" width="154" height="24"/>
+  <object x="227" y="164" width="23" height="92"/>
+  <object x="132" y="165" width="93" height="22"/>
+  <object x="388" y="31" width="21" height="154"/>
+  <object x="390" y="230" width="22" height="243"/>
+  <object x="390" y="517" width="21" height="94"/>
+ </objectgroup>
+</map>

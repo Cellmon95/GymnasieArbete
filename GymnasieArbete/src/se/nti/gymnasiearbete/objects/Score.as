@@ -3,19 +3,20 @@ package se.nti.gymnasiearbete.objects
 	import flash.geom.Rectangle;
 	import se.nti.gymnasiearbete.core.Assets;
 	import se.nti.gymnasiearbete.core.Game;
+	import starling.textures.Texture;
 	/**
 	 * ...
 	 * @author Lucas Källberg
 	 */
-	public class Wall extends CollisionObject
+	public class Score extends CollisionObject 
 	{
 		
-		public function Wall(game:Game, x:Number = 0, y:Number = 0)
+		public function Score(game:Game, x:int = 0, y:int = 0) 
 		{
-			super(game, Assets.WallText, x, y, new Rectangle(0, 5, 32, 22));
+			super(game, Assets.scoreText, x, y, new Rectangle(16, 16, 3, 3));
 		}
 		
-
+		
 	}
 
 }

@@ -13,7 +13,7 @@ package se.nti.gymnasiearbete.core
 	public class Main extends Sprite 
 	{
 		private var starling:Starling;
-		
+		private var stats:Stats;
 		public function Main():void 
 		{
 			if (stage) init();
@@ -25,7 +25,8 @@ package se.nti.gymnasiearbete.core
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			starling = new Starling(Game, stage);
-			//starling.showStats = true;
+			stats = new Stats();
+			addChild(stats);
 			starling.antiAliasing = 4;
 			starling.start();
 		}
