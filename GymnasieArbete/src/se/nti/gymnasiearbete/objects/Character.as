@@ -33,9 +33,9 @@ package se.nti.gymnasiearbete.objects
 			return _colliding;
 		}
 		
-		public function Character(game:Game, texture:Texture, x:Number = 0, y:Number = 0) 
+		public function Character(game:Game, texture:Texture, x:Number = 0, y:Number = 0, custBounds:Rectangle = null, showBounds:Boolean = false) 
 		{
-			super(game, texture, x, y)
+			super(game, texture, x, y, custBounds, showBounds)
 			colliding = false;
 		}
 		

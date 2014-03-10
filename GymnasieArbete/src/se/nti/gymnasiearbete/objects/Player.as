@@ -19,7 +19,7 @@ package se.nti.gymnasiearbete.objects
 		
 		public function Player(game:Game, x:Number = 0, y:Number = 0) 
 		{
-			super(game, Assets.PlayerText, x, y);
+			super(game, Assets.PlayerText, 0, 0, new Rectangle(-20, -20, 40, 40), false);
 			nativeStage = Starling.current.nativeStage;
 			
 			accX = 0;
@@ -63,8 +63,8 @@ package se.nti.gymnasiearbete.objects
 				accX = 0;
 				direction = DIR_DOWN;
 			}
-			img.x += accX * e.passedTime;
-			img.y += accY * e.passedTime;
+			this.x += accX * e.passedTime;
+			this.y += accY * e.passedTime;
 			/*else
 			{
 				switch (direction) 

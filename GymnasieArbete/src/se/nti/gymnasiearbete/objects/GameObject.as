@@ -33,8 +33,6 @@ package se.nti.gymnasiearbete.objects
 		public function getObject():Object
 		{
 			return this;
-		}
-		
+		}	
 	}
-
 }

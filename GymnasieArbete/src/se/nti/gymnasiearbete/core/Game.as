@@ -29,6 +29,11 @@ package se.nti.gymnasiearbete.core
 		
 		public function changeState(state:int):void
 		{
+			if (currentState != null) 
+			{
+				currentState.dispose();
+				currentState = null;
+			}
 			switch (state) 
 			{
 				case MENU_STATE:

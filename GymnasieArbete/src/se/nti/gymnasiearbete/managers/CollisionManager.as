@@ -25,7 +25,7 @@ package se.nti.gymnasiearbete.managers
 		{
 			this.play = play;
 			
-			walls = play.map.mapObjectsBounds;
+			walls = play.map.collisionRectangels;
 			scores = play.scores;
 			
 			player = play.player;
@@ -63,6 +63,8 @@ package se.nti.gymnasiearbete.managers
 						scores.splice(i, 1);
 						
 						tmp.removeFromParent(true);
+						tmp.dispose();
+						tmp = null;
 						play.playerScore++;
 						trace(play.playerScore);
 					}

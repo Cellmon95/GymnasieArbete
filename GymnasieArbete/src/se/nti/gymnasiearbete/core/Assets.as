@@ -54,11 +54,9 @@ package se.nti.gymnasiearbete.core
 			
 			var mapXML:XML = XML(new testMap());
 			var tileset:Vector.<Bitmap> = new Vector.<Bitmap>;
-			tileset.push(Bitmap(new wood_large_tileset()),Bitmap(new wood_back()));
+			tileset.push(Bitmap(new wood_large_tileset()),Bitmap(new wood_back()), Bitmap(new Score()));
 			
 			mapTMX = TMXTileMap.createMap(mapXML, tileset);
-			
-			
 			/*map = new Array	
 			(
 			new Array(0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1),
@@ -82,6 +80,19 @@ package se.nti.gymnasiearbete.core
 			new Array	(1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1),
 			new Array	(1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1)
 			);*/
+		}
+		
+		internal static function unload():void
+		{
+			PlayerText.dispose();
+			
+			WallText.dispose();
+			
+			scoreText.dispose();
+			
+			gridText.dispose();
+			
+			mapTMX = null;
 		}
 		
 	}

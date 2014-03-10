@@ -65,6 +65,14 @@ package se.nti.gymnasiearbete.states
 			enemys[2] = new Enemy(game, 0, 200);
 			enemys[3] = new Enemy(game, 0, 200);
 			
+			enemys[0].changeForm();
+			
+			//TODO:: make this better
+			for (var i:int = 0; i < map.scoresPos.length; i++) 
+			{
+				scores.push(new Score(game, map.scoresPos[i].x, map.scoresPos[i].y - 32));
+			}
+			
 			draw();
 			
 		}
@@ -110,6 +118,11 @@ package se.nti.gymnasiearbete.states
 				game.addChild(enemys[i]);				
 			}
 			
+			for (var i:int = 0; i < scores.length; i++) 
+			{
+				game.addChild(scores[i]);
+			}
+			
 		}
 		
 		public function update(e:EnterFrameEvent):void
@@ -126,8 +139,35 @@ package se.nti.gymnasiearbete.states
 		override public function dispose():void 
 		{
 			super.dispose();
+			
 			Input.end();
 			
+			game.removeChild(player);
+			player.dispose();
+			player = null;
+			
+			for (var i:int = 0; i < scores.length; i++) 
+			{
+				game.removeChild(scores[i]);
+				scores[i].dispose();
+				scores[i] = null;
+			}
+			
+			for (var i:int = 0; i < walls.length; i++) 
+			{
+				walls[i].dispose()
+				walls[i] = null;
+			}
+			
+			for (var i:int = 0; i < enemys.length; i++) 
+			{
+				game.removeChild(enemys[i]);
+				enemys[i].dispose();
+				enemys[i] = null;
+			}
+			
+			map.dispose();
+			//map = null;
 		}
 	}
 }
