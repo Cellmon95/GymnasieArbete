@@ -1,6 +1,7 @@
 package se.nti.gymnasiearbete.objects 
 {
 	import flash.events.TimerEvent;
+	import flash.net.drm.DRMVoucherDownloadContext;
 	import flash.utils.Timer;
 	import se.nti.gymnasiearbete.core.Assets;
 	import se.nti.gymnasiearbete.core.Game;
@@ -14,8 +15,15 @@ package se.nti.gymnasiearbete.objects
 	public class Enemy extends Character 
 	{
 		
-		private var timer:Timer;
-
+		private static var timer:Timer;
+		private static var _chased:Boolean;
+		
+		
+		public static function get chased():Boolean
+		{
+			return _chased;
+		}
+		
 		
 		public function Enemy(game:Game, x:Number = 0, y:Number = 0) 
 		{
@@ -43,19 +51,19 @@ package se.nti.gymnasiearbete.objects
 
 		}
 		
-		public function changeForm():void
+		public static function changeForm():void
 		{
 			timer = new Timer(10000, 0);
 			timer.addEventListener(TimerEvent.TIMER, onTimerComplete);
 			timer.start();
-			trace("im hunted!");
+			_chased = true;
 		}
 		
-		private function onTimerComplete(t:TimerEvent):void
+		private static function onTimerComplete(t:TimerEvent):void
 		{
-			trace("im hunting");
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER, onTimerComplete);
+			_chased = false;
 		}
 		
 		override public function update(e:EnterFrameEvent):void 

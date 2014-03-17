@@ -19,7 +19,7 @@ package se.nti.gymnasiearbete.objects
 		
 		public function Player(game:Game, x:Number = 0, y:Number = 0) 
 		{
-			super(game, Assets.PlayerText, 0, 0, new Rectangle(-20, -20, 40, 40), false);
+			super(game, Assets.PlayerText, x, y, new Rectangle(-14, -14, 28, 28), false);
 			nativeStage = Starling.current.nativeStage;
 			
 			accX = 0;

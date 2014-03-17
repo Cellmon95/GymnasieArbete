@@ -98,5 +98,4 @@ package se.nti.gymnasiearbete.objects
 			return tmpPoints;
 		}
 	}
-
 }

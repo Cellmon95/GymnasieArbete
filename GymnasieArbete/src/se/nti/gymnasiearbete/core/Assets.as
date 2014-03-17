@@ -24,12 +24,20 @@ package se.nti.gymnasiearbete.core
 		
 		public static var scoreText:Texture;
 		
+		[Embed(source="../../../../../resources/super score.png")]
+		private static var superscore:Class
+		
+		public static var superScoreTex:Texture
+		
 		[Embed(source = "../../../../../resources/Grid.png")]
 		private static const Grid:Class;
 		public static var gridText:Texture;
 		
 		[Embed(source="../../../../../resources/testKnokmap.tmx", mimeType="application/octet-stream")]
 		private static var testMap:Class;
+		
+		[Embed(source = "../../../../../resources/MainMap.tmx", mimeType = "application/octet-stream")]
+		private static var MainMap:Class;
 
 		[Embed(source="../../../../../resources/wood_large.png")]
 		private static var wood_large_tileset:Class;
@@ -51,10 +59,11 @@ package se.nti.gymnasiearbete.core
 			WallText = Texture.fromEmbeddedAsset(Wall);
 			scoreText = Texture.fromEmbeddedAsset(Score);
 			gridText = Texture.fromEmbeddedAsset(Grid);
+			superScoreTex = Texture.fromEmbeddedAsset(superscore);
 			
-			var mapXML:XML = XML(new testMap());
+			var mapXML:XML = XML(new MainMap());
 			var tileset:Vector.<Bitmap> = new Vector.<Bitmap>;
-			tileset.push(Bitmap(new wood_large_tileset()),Bitmap(new wood_back()), Bitmap(new Score()));
+			tileset.push(Bitmap(new wood_large_tileset()),Bitmap(new wood_back()), Bitmap(new Score()), Bitmap( new Player()));
 			
 			mapTMX = TMXTileMap.createMap(mapXML, tileset);
 			/*map = new Array	

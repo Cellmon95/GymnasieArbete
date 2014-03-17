@@ -10,6 +10,7 @@ package se.nti.gymnasiearbete.states
 	import se.nti.gymnasiearbete.objects.Map;
 	import se.nti.gymnasiearbete.objects.Player;
 	import se.nti.gymnasiearbete.objects.Score;
+	import se.nti.gymnasiearbete.objects.SuperScore;
 	import se.nti.gymnasiearbete.objects.Wall;
 	import se.nti.gymnasiearbete.objects.VisualObject;
 	import starling.core.Starling;
@@ -32,11 +33,13 @@ package se.nti.gymnasiearbete.states
 		//public var gameObjects:Vector.<GameObject>;
 		public var walls:Vector.<Wall>;
 		public var scores:Vector.<Score>;
+		public var superScores:Vector.<SuperScore>;
 		public var player:Player;
 		public var enemys:Vector.<Enemy>;
 		public var playerScore:int;
 		public var map:Map;
 		private var playerScoreText:TextField;
+
 		
 		public function PlayState(game:Game) 
 		{
@@ -49,7 +52,8 @@ package se.nti.gymnasiearbete.states
 		{
 			walls = new Vector.<Wall>;
 			scores = new Vector.<Score>;
-			player = new Player(game, 64, 32 * 10);
+			superScores = new Vector.<SuperScore>;
+			player = new Player(game, 32*12, 32*13);
 			enemys = new Vector.<Enemy>;
 			map = new Map(game);
 			
@@ -60,12 +64,10 @@ package se.nti.gymnasiearbete.states
 			
 			playerScore = 0;
 			
-			enemys[0] = new Enemy(game, 0, 200);
-			enemys[1] = new Enemy(game, 0, 200);
-			enemys[2] = new Enemy(game, 0, 200);
-			enemys[3] = new Enemy(game, 0, 200);
-			
-			enemys[0].changeForm();
+			//enemys[0] = new Enemy(game, 100, 0);
+			//enemys[1] = new Enemy(game, 100, 200);
+			//enemys[2] = new Enemy(game, 100, 200);
+			//enemys[3] = new Enemy(game, 100, 200);
 			
 			//TODO:: make this better
 			for (var i:int = 0; i < map.scoresPos.length; i++) 
@@ -140,6 +142,7 @@ package se.nti.gymnasiearbete.states
 		{
 			super.dispose();
 			
+			collisionManager = null;
 			Input.end();
 			
 			game.removeChild(player);

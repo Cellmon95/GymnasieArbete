@@ -13,7 +13,7 @@ package se.nti.gymnasiearbete.objects
 		
 		public function Score(game:Game, x:int = 0, y:int = 0) 
 		{
-			super(game, Assets.scoreText, x, y, new Rectangle(16, 16, 3, 3), true);
+			super(game, Assets.scoreText, x, y, new Rectangle(16, 16, 3, 3));
 		}
 	}
 }

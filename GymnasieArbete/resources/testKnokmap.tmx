@@ -19,7 +19,7 @@
    eJwTYaAtEIFiWtvBBcTCNMBMdPYHzA4WGvmHh07+GI2P0fighT/4oezR+Bgc8TGaPwZXfAAAlLUQ6w==
   </data>
  </layer>
- <objectgroup name="Collision Rect" width="25" height="20" visible="0">
+ <objectgroup name="Collision Rect" width="25" height="20">
   <object x="23" y="67" width="709" height="25"/>
   <object x="68" y="134" width="704" height="21"/>
   <object x="27" y="199" width="703" height="20"/>
@@ -295,5 +295,6 @@
   <object gid="30" x="96" y="640"/>
   <object gid="30" x="64" y="640"/>
   <object gid="30" x="32" y="640"/>
+  <object gid="30" x="160" y="128"/>
  </objectgroup>
 </map>

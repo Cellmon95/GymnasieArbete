@@ -47,8 +47,8 @@ package se.nti.gymnasiearbete.objects
 		
 		override protected function init(e:Event):void
 		{			
-			img.x = x;
-			img.y = y;
+			/*img.x = x;
+			img.y = y;*/
 			game.addChild(img);
 		}
 		

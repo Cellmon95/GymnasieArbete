@@ -71,10 +71,36 @@ package se.nti.gymnasiearbete.managers
 			}
 		}
 		
+		private function playerToEnemys():void
+		{
+			for (var i:int = 0; i < enemys.length; i++) 
+			{
+				if (player.bounds.intersects(enemys[i].bounds)) 
+				{
+					if (Enemy.chased) 
+					{
+						var tmpEnemy:Enemy = enemys[i];
+						enemys.splice(i, 1);
+						tmpEnemy.dispose();
+						tmpEnemy = null;
+						
+						play.playerScore += 50;
+					}
+					
+					else
+					{
+						play.game.changeState(Game.GAME_OVER_STATE);
+						break;	
+					}
+				}
+			}
+		}
+		
 		public function update():void
 		{
 			characterToWalls();
 			playerToScore();
+			playerToEnemys();
 		}
 		
 	}
